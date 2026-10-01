@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genai-evaluation-platform"
+version = "0.1.0"
+description = "A production-minded evaluation harness for grounded GenAI systems."
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1.0", "pydantic>=2.8,<3.0", "uvicorn>=0.30,<1.0"]
+
+[project.scripts]
+genai-eval = "genai_evaluation_platform.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
